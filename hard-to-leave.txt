@@ -1,0 +1,64 @@
+
+50 CALL CLEAR
+
+75 REM RANDOMIZED COLORS!
+80 RANDOMIZE
+81 BG=INT(RND*16)+1
+85 RANDOMIZE
+86 FG=INT(RND*16)+1
+87 RANDOMIZE
+90 CALL SCREEN(BG)
+
+100 CALL COLOR(5,FG,BG)
+101	CALL COLOR(6,FG,BG)
+102	CALL COLOR(7,FG,BG)
+103	CALL COLOR(8,FG,BG)
+104 CALL COLOR(9,FG,BG)
+105 CALL COLOR(10,FG,BG)
+106 CALL COLOR(11,FG,BG)
+107 CALL COLOR(12,FG,BG)
+108 CALL COLOR(2,FG,BG)
+109 CALL COLOR(3,FG,BG)
+110 CALL COLOR(4,FG,BG)
+111 CALL COLOR(1,FG,BG)
+
+120 REM TITLE CARD
+121 PRINT "It's Hard To Leave"
+122 PRINT "When You Can't"
+123 PRINT "Find The Door"
+124 PRINT "----------------------------"
+125 PRINT "Jeremy Duenas"
+126 PRINT "----------------------------"
+127 PRINT ""
+
+140 T=1
+
+150 REM NAVIGATION MENU
+151 PRINT "You awake in a room.":"Find the door."
+152 PRINT "":"----------------------------"
+154 PRINT "1: Go North" 
+155 PRINT "2: Go East"
+156 PRINT "3: Go South"
+157 PRINT "4: Go West"
+158 PRINT "5: Quit"
+160 INPUT "What do you do?":A
+161 X=INT(RND*4)+1
+
+170 IF A=5 THEN 500
+171 IF X=A THEN 200 ELSE 300
+
+200 REM GOOD GUESS
+201 CALL CLEAR
+202 PRINT "----------------------------"
+203 PRINT "Congratulations, you escapedin only ";T;" attempts!"
+204 PRINT "----------------------------"
+205 END
+
+300 REM BAD GUESS
+301 PRINT "Nope, that's not the door"
+302 T=T+1
+303 GOTO 152
+
+500 REM EXIT GAME
+501 PRINT "----------------------------":"COWARD!"
+502 END
